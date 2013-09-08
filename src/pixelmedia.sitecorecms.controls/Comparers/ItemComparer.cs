@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Sitecore.Data.Items;
 
-namespace PixelMEDIA.SitecoreCMS.Controls.Compareres
+namespace PixelMEDIA.SitecoreCMS.Controls.Comparers
 {
     public class ItemComparer : IEqualityComparer<Item>
     {

@@ -17,6 +17,9 @@ namespace PixelMEDIA.SitecoreCMS.Controls.EventHandlers
     /// <event name="item:added">
     ///     <handler type="PixelMEDIA.SitecoreCMS.Controls.EventHandlers.ItemEventHandler, PixelMEDIA.SitecoreCMS.Controls" method="PopulateDisplayName"/>
     /// </event>
+    /// <event name="item:renamed">
+    ///     <handler type="PixelMEDIA.SitecoreCMS.Controls.EventHandlers.ItemEventHandler, PixelMEDIA.SitecoreCMS.Controls" method="PopulateDisplayName"/>
+    /// </event>
     /// 
     /// Taken from http://www.cognifide.com/blogs/sitecore/sitecore-best-practice-9/.
     /// </summary>
@@ -25,11 +28,9 @@ namespace PixelMEDIA.SitecoreCMS.Controls.EventHandlers
         protected void PopulateDisplayName(object sender, EventArgs args)
         {
             var item = (Item)Event.ExtractParameter(args, 0);
-            string processedName = item.Name.ToLower().Replace(' ', '-');
-
+            
             if (item.Database.Name != "master"
-                || !item.Paths.Path.StartsWith("/sitecore/content/Home/")
-                || item.Name.Equals(processedName))
+                || !item.Paths.Path.StartsWith("/sitecore/content/"))
             {
                 return;
             }
@@ -38,7 +39,6 @@ namespace PixelMEDIA.SitecoreCMS.Controls.EventHandlers
             try
             {
                 item.Appearance.DisplayName = item.Name;
-                item.Name = processedName;
             }
             finally
             {

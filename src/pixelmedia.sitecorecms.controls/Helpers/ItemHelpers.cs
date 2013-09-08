@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Sitecore.Data.Fields;
-using Sitecore.Shell.Framework;
 using Sitecore.Data.Items;
-using Sitecore.Collections;
 using Sitecore.Data;
 using Sitecore.Resources.Media;
 using Sitecore.Web.UI.WebControls;
